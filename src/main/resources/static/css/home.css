@@ -20,8 +20,6 @@ body section a article {
   justify-content: space-between;
   padding: 20px;
   padding-bottom: 35px;
-}
-body section a article.pipeline-row {
   position: relative;
 }
 body section a article.pipeline-row span {
@@ -29,14 +27,16 @@ body section a article.pipeline-row span {
 }
 body section a article.pipeline-row span.description {
   background-color: white;
-  border: 1px solid black;
   color: #000;
   color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
-  left: 50%;
+  padding: 0 0 0 0;
   position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  right: 0%;
+  font-size: 10px;
+  top: 100%;
+  transform: translateX(-100%);
+  transform: translateY(-100%);
   width: 350px;
   visibility: hidden;
   z-index: 1;
