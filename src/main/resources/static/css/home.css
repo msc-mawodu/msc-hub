@@ -5,21 +5,29 @@ body {
 body section {
   width: 80%;
 }
-body section article {
+body section a {
+  color: inherit;
+  display: block;
+  font: inherit;
+  text-decoration: none;
+}
+body section a:nth-of-type(2) {
+  background-color: rgba(75, 106, 136, 0.1);
+}
+body section a article {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px;
   padding-bottom: 35px;
-  /* Tooltip container */
 }
-body section article.pipeline-row {
+body section a article.pipeline-row {
   position: relative;
 }
-body section article.pipeline-row span {
+body section a article.pipeline-row span {
   padding-right: 15px;
 }
-body section article.pipeline-row span.description {
+body section a article.pipeline-row span.description {
   background-color: white;
   border: 1px solid black;
   color: #000;
@@ -33,12 +41,9 @@ body section article.pipeline-row span.description {
   visibility: hidden;
   z-index: 1;
 }
-body section article.pipeline-row:hover {
+body section a article.pipeline-row:hover {
   cursor: pointer;
 }
-body section article.pipeline-row:hover .description {
+body section a article.pipeline-row:hover .description {
   visibility: visible;
-}
-body section article.pipeline-row:nth-of-type(2) {
-  background-color: rgba(75, 106, 136, 0.1);
 }

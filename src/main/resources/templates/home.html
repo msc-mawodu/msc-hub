@@ -7,13 +7,15 @@
 <body>
     <section>
         {{#pipelines}}
-            <article class="pipeline-row">
-                <span>{{#uid}} {{.}} {{/uid}}</span>
-                <span>{{#status}} {{.}} {{/status}}</span>
-                <span>{{#assiociatedFilesCount}} {{.}} {{/assiociatedFilesCount}}</span>
-                <span class="description">{{#shortDescription}} {{.}} {{/shortDescription}}</span>
-                <span>{{#url}} {{.}} {{/url}}</span>
-            </article>
+            <a href="{{#url}}{{.}}{{/url}}">
+                <article class="pipeline-row">
+                    <span>{{#uid}} {{.}} {{/uid}}</span>
+                    <span>{{#status}} {{.}} {{/status}}</span>
+                    <span>{{#assiociatedFilesCount}} {{.}} {{/assiociatedFilesCount}}</span>
+                    <span class="description">{{#shortDescription}} {{.}} {{/shortDescription}}</span>
+                    <span></span>
+                </article>
+            </a>
         {{/pipelines}}
     </section>
 
