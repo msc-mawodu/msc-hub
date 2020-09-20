@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAIA,IAAK;EACH,KAAK,EAJM,OAAO;EAKlB,IAAI,EAAE,0BAAU",
+"sources": ["pipeline.scss"],
+"names": [],
+"file": "pipeline.css"
+}
