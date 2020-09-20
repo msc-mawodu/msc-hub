@@ -2,9 +2,10 @@
 Hub application for gathering and storing data from bioinformatic pipelines. 
 
 # Requirements
-1) Maven 3.5.4
-2) Java 1.8.0_26
-3) Docker 
+- Maven 3.5.4
+- Java 1.8.0_26
+- Docker 
+- MySQL
 
 # Startup
 1) Pull the repository
@@ -15,3 +16,8 @@ Hub application for gathering and storing data from bioinformatic pipelines.
 
 5) By default the application should be running on localhost port 8080, so unless it's occupied the application should be available at
 > 127.0.0.1:8080
+
+# Development
+- CSS: project uses sass/scss files to defile css stylesheets. Maven is responsible for compilation from sccs to css:
+> mvn sass:watch
+ 
