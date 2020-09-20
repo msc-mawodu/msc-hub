@@ -7,5 +7,37 @@
 
 <body>
     <h1>Pipeline Details</h1>
+    <article>
+    {{#pipelineDetails}}
+        <h2>Overview</h2>
+        {{#pipelineOverview}}
+        <section class="pipeline-row">
+            <span>{{#uid}} {{.}} {{/uid}}</span>
+            <span>{{#status}} {{.}} {{/status}}</span>
+            <span>{{#assiociatedFilesCount}} {{.}} {{/assiociatedFilesCount}}</span>
+            <span class="description">{{#shortDescription}} {{.}} {{/shortDescription}}</span>
+            <span>{{#url}} {{.}} {{/url}}</span>
+        </section>
+        {{/pipelineOverview}}
+
+        {{#notes}}
+        <h2>Notes</h2>
+        <section>
+            notes tba
+        </section>
+        {{/notes}}
+
+        {{#filePaths}}
+        <h2>Files</h2>
+        <section>
+            files tba
+        </section>
+        {{/filePaths}}
+    {{/pipelineDetails}}
+    {{^pipelineDetails}}
+        <p>Pipeline not found, return to <a href="/">home page</a></p>
+    {{/pipelineDetails}}
+    </article>
+
 </body>
 </html>
