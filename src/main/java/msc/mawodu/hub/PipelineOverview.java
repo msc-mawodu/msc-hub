@@ -1,5 +1,7 @@
 package msc.mawodu.hub;
 
+import msc.mawodu.hub.mocks.Routes;
+
 public class PipelineOverview {
     private String uid;
     private String status;
@@ -12,7 +14,7 @@ public class PipelineOverview {
         this.status = status;
         this.assiociatedFilesCount = assiociatedFilesCount;
         this.shortDescription = shortDescription;
-        this.url = url;
+        this.url = Routes.PIPELINE_DETAILS.replace("{uid}", uid);
     }
 
     public String getUid() {
