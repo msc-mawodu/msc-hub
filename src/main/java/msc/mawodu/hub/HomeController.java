@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
 import java.util.Map;
 
 
@@ -17,7 +18,8 @@ public class HomeController {
 
     @GetMapping(value="/")
     public ModelAndView displayArticle(Map<String, Object> model) {
-        model.put("test", "123321123");
+        List<PipelineOverview> pipelines = MockPipelineOverviewDataProvider.fetch();
+        model.put("pipelines", pipelines);
         return new ModelAndView("home", model);
     }
 

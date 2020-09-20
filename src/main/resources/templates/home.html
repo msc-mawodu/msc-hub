@@ -5,9 +5,18 @@
     <title>Title</title>
 </head>
 <body>
+    <section>
+        {{#pipelines}}
+            <article class="pipeline-row">
+                <span>{{#uid}} {{.}} {{/uid}}</span>
+                <span>{{#status}} {{.}} {{/status}}</span>
+                <span>{{#assiociatedFilesCount}} {{.}} {{/assiociatedFilesCount}}</span>
+                <span class="description">{{#shortDescription}} {{.}} {{/shortDescription}}</span>
+                <span>{{#url}} {{.}} {{/url}}</span>
+            </article>
+        {{/pipelines}}
+    </section>
 
-<h1>HOME PAGE</h1>
-<h2> {{test}} </h2>
 </body>
 
 <link rel="stylesheet" property="stylesheet" href="css/home.css" />
