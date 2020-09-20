@@ -23,8 +23,11 @@
         {{#notes}}
         <h2>Notes</h2>
         <section>
-            notes tba
+            <div contenteditable="true" id="userNotes">
+                {{.}}
+            </div>
         </section>
+
         {{/notes}}
 
         {{#filePaths}}
@@ -34,9 +37,11 @@
         </section>
         {{/filePaths}}
     {{/pipelineDetails}}
+
     {{^pipelineDetails}}
         <p>Pipeline not found, return to <a href="/">home page</a></p>
     {{/pipelineDetails}}
+
     </article>
 
 </body>
