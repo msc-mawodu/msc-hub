@@ -3,6 +3,54 @@ $font-color: #1C2833;
 $background-color: #4B6A88;
 
 body {
-    font: 100% $font;
     color: $font-color;
+    font: 100% $font;
+
+  section {
+    width: 80%;
+
+    article {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      padding-bottom: 35px;
+
+      /* Tooltip container */
+      &.pipeline-row {
+        position: relative;
+
+        span {
+          padding-right: 15px;
+        }
+
+        span.description {
+          background-color: white;
+          border: 1px solid black;
+          color: #000;
+          color: rgba(0, 0, 0, 0.5);
+          cursor:pointer;
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          //transition-delay: 1s;
+          width: 350px;
+          visibility: hidden;
+          z-index: 1;
+        }
+
+        &:hover {
+          cursor:pointer;
+          .description {
+            visibility: visible;
+          }
+        }
+
+        &:nth-of-type(2) {
+          background-color: rgba(75,106,136, 0.1);
+        }
+      }
+    }
+  }
 }
