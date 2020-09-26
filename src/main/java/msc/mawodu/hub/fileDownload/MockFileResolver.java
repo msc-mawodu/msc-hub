@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,5 +26,10 @@ public class MockFileResolver implements FileResolver {
             logger.error("Unable to find the file.");
         }
         return Optional.empty();
+    }
+
+    @Override
+    public boolean storeFile(MultipartFile file, String pipelineId) {
+        return true;
     }
 }

@@ -3,7 +3,10 @@ package msc.mawodu.hub;
 
 import msc.mawodu.hub.fileDownload.FileDownloadController;
 import msc.mawodu.hub.fileDownload.FileResolver;
+import msc.mawodu.hub.fileDownload.FilenamesStore;
 import msc.mawodu.hub.fileDownload.FilesystemFileResolver;
+import msc.mawodu.hub.fileUpload.FileUploadController;
+import msc.mawodu.hub.mocks.MockInMemoryFileNamesDatabase;
 import msc.mawodu.hub.mocks.MockInMemoryNotesDatabase;
 import msc.mawodu.hub.notes.NotesUpdateController;
 import msc.mawodu.hub.stubs.StubPipelineOverviewDataProvider;
@@ -31,6 +34,11 @@ public class Config {
     }
 
     @Bean
+    MockInMemoryFileNamesDatabase mockInMemoryFileNamesDatabase() {
+        return new MockInMemoryFileNamesDatabase();
+    }
+
+    @Bean
     StubPipelineOverviewDataProvider stubPipelineOverviewDataProvider() {
         return new StubPipelineOverviewDataProvider();
     }
@@ -53,5 +61,10 @@ public class Config {
     @Autowired
     FileDownloadController fileDownloadController(FileResolver fileResolver) {
         return new FileDownloadController(fileResolver);
+    }
+
+    @Autowired
+    FileUploadController fileUploadController(FileResolver fileResolver, FilenamesStore filenamesStore) {
+        return new FileUploadController(fileResolver, filenamesStore);
     }
 }
