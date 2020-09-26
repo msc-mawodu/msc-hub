@@ -1,10 +1,13 @@
 package msc.mawodu.hub.notes;
 
 
+import msc.mawodu.hub.NotesStore;
 import msc.mawodu.hub.Routes;
 
+import msc.mawodu.hub.mocks.MockInMemoryNotesDatabase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
@@ -19,6 +22,9 @@ import java.util.stream.Collectors;
 @RestController
 public class NotesUpdateController {
 
+    @Autowired
+    MockInMemoryNotesDatabase notesDatabase;
+
     private static final Logger logger = LoggerFactory.getLogger(NotesUpdateController.class);
 
     @PostMapping(value= Routes.PIPELINE_NOTES_UPDATE)
@@ -29,8 +35,9 @@ public class NotesUpdateController {
             return errorResponse(requestErrors);
         }
 
-        String updatedNotes = notesContent + " - UPDATED";
-        return ResponseEntity.ok(NotesUpdateResponse.correct(updatedNotes));
+        boolean pipelineNotesupdateStatus = notesDatabase.updatePipelineNotes(pipelineId, notesContent.getNotes());
+
+        return ResponseEntity.ok(NotesUpdateResponse.correct(String.valueOf(pipelineNotesupdateStatus)));
 
     }
 
