@@ -36,8 +36,10 @@ public class FilesystemFileResolver implements FileResolver {
         String fullFilePath = String.format("%s/%s/%s", systemPath, pipelineId, fileName);
         try {
             file.transferTo(new File(fullFilePath));
+            logger.info(String.format("Successfully stored file at: %s", fullFilePath));
             return true;
         } catch (IOException e) {
+            logger.error("Error saving file to filesystem");
             return false;
         }
     }

@@ -27,17 +27,28 @@ public class FileUploadController {
         this.filenamesStore = filenamesStore;
     }
 
-
-
     @PostMapping(value = Routes.PIPELINE_FILE_UPLOAD)
-    public String handleFileUpload(@RequestParam("file") MultipartFile file, @PathVariable String pipelineId, RedirectAttributes redirectAttributes) {
+    public String handleFileUpload(@RequestParam("file") MultipartFile file, @PathVariable String pipelineId) {
         logger.info(String.format("Received file to be uploaded: %s", file.getOriginalFilename()));
 
         boolean fileStoredSuccessfully = fileResolver.storeFile(file, pipelineId);
         if(fileStoredSuccessfully) {
             filenamesStore.registerNewFile(pipelineId, file.getOriginalFilename());
-            redirectAttributes.addFlashAttribute("message", "File Uploaded");
-            return "redirect:/";
+            return "OK";
+        }
+
+        return "ERROR";
+    }
+
+    @PostMapping(value = Routes.PIPELINE_MANUAL_FILE_UPLOAD)
+    public String handleManualFileUpload(@RequestParam("file") MultipartFile file, @PathVariable String pipelineId, RedirectAttributes redirectAttributes) {
+        logger.info(String.format("Received manual file upload: %s", file.getOriginalFilename()));
+
+        boolean fileStoredSuccessfully = fileResolver.storeFile(file, pipelineId);
+        if(fileStoredSuccessfully) {
+            filenamesStore.registerNewFile(pipelineId, file.getOriginalFilename());
+            redirectAttributes.addFlashAttribute(Routes.PIPELINE_MANUAL_FILE_UPLOADED, true);
+            return String.format("redirect:/%s/%s", "pipeline", pipelineId);
         }
 
         return "";

@@ -6,6 +6,10 @@
 </head>
 
 <body>
+    {{#uploadRedirect}}
+        <div class="flashMessage">File Uploaded Successfully</div>
+    {{/uploadRedirect}}
+
     <h1>Pipeline Details</h1>
     <article>
     {{#pipelineDetails}}
@@ -39,7 +43,7 @@
         {{/filePaths}}
         <h3>Files Upload</h3>
         <section>
-            <form method="POST" enctype="multipart/form-data" action="/file/{{uid}}">
+            <form method="POST" enctype="multipart/form-data" action="/file/manual/{{uid}}">
                 <table>
                     <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
                     <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
