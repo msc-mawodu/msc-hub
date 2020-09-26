@@ -47,7 +47,7 @@ public class FileUploadController {
         boolean fileStoredSuccessfully = fileResolver.storeFile(file, pipelineId);
         if(fileStoredSuccessfully) {
             filenamesStore.registerNewFile(pipelineId, file.getOriginalFilename());
-            redirectAttributes.addFlashAttribute(Routes.PIPELINE_MANUAL_FILE_UPLOADED, true);
+            redirectAttributes.addFlashAttribute(Routes.PIPELINE_MANUAL_FILE_UPLOADED, String.format("uploaded %s", file.getOriginalFilename()));
             return String.format("redirect:/%s/%s", "pipeline", pipelineId);
         }
 
