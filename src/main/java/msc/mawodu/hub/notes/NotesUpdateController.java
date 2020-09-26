@@ -1,10 +1,9 @@
 package msc.mawodu.hub.notes;
 
 
-import msc.mawodu.hub.NotesStore;
 import msc.mawodu.hub.Routes;
-
 import msc.mawodu.hub.mocks.MockInMemoryNotesDatabase;
+import org.jsoup.Jsoup;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
 import javax.validation.Valid;
 import java.util.stream.Collectors;
 
@@ -35,7 +35,9 @@ public class NotesUpdateController {
             return errorResponse(requestErrors);
         }
 
-        boolean pipelineNotesupdateStatus = notesDatabase.updatePipelineNotes(pipelineId, notesContent.getNotes());
+        String sanitisedNotes = Jsoup.parse(notesContent.getNotes()).text();
+
+        boolean pipelineNotesupdateStatus = notesDatabase.updatePipelineNotes(pipelineId, sanitisedNotes);
 
         return ResponseEntity.ok(NotesUpdateResponse.correct(String.valueOf(pipelineNotesupdateStatus)));
 
