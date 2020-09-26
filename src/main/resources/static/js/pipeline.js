@@ -10,8 +10,11 @@ $(document).ready(function () {
 });
 
 function postUpdatedNotes() {
-    var restApiUrl = "/notes";
-    var content = document.getElementById("userNotes").innerHTML;
+    var notesElement = document.getElementById("userNotes");
+    var content = notesElement.innerHTML;
+    var pipelineId = notesElement.dataset.pipelineid;
+    var restApiUrl = "/note/" + pipelineId;
+
     $("#userNotesSave").prop("disabled", true);
     var jsonNotes = {"notes": content};
     console.log(content);
