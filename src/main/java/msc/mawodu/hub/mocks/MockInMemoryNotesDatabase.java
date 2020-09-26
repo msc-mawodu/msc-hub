@@ -1,12 +1,10 @@
 package msc.mawodu.hub.mocks;
 
 import msc.mawodu.hub.NotesStore;
-import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@Service
 public class MockInMemoryNotesDatabase implements NotesStore {
 
     private static Map<String, String> mockDB;
