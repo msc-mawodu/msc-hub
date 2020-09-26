@@ -10,8 +10,9 @@ Hub application for gathering and storing data from bioinformatic pipelines.
 # Startup
 1) Pull the repository
 2) Start-up MySQL server
-3) Make sure the database configuration is correctly set in the application 
-4) In the terminal navigate to the project root folder and run command: 
+3) Make sure the database configuration is correctly set in the application
+4) Make sure "files.storage.path" is correctly set in the application.properties file. It should be pointing to an existing folder to which files will be downloaded/uploaded.
+5) In the terminal navigate to the project root folder and run command: 
 > mvn spring-boot:run 
 
 5) By default the application should be running on localhost port 8080, so unless it's occupied the application should be available at
