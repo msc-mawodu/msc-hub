@@ -1,7 +1,5 @@
 package msc.mawodu.hub;
 
-import msc.mawodu.hub.mocks.Routes;
-
 public class PipelineOverview {
     private String uid;
     private String status;

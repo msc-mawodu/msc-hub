@@ -18,6 +18,7 @@ Hub application for gathering and storing data from bioinformatic pipelines.
 > 127.0.0.1:8080
 
 # Development
-- CSS: project uses sass/scss files to defile css stylesheets. Maven is responsible for compilation from sccs to css:
+- CSS: project uses sass/scss files to defile css stylesheets. Maven is responsible for compilation from sccs to css.
+- To compile scss to css run following command (NB. this can be done with the main application running).
 > mvn sass:watch
  
