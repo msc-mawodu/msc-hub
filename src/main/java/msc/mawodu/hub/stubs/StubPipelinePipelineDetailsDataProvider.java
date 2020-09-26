@@ -1,5 +1,6 @@
 package msc.mawodu.hub.stubs;
 
+import msc.mawodu.hub.PipelineDetailsDataProvider;
 import msc.mawodu.hub.PipelineDetails;
 import msc.mawodu.hub.PipelineOverview;
 import msc.mawodu.hub.mocks.MockInMemoryNotesDatabase;
@@ -12,11 +13,12 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class StubPipelineDetailsDataProvider {
+public class StubPipelinePipelineDetailsDataProvider implements PipelineDetailsDataProvider {
 
     @Autowired
     MockInMemoryNotesDatabase notesDatabase;
 
+    @Override
     public PipelineDetails fetchById(String uid) {
         PipelineOverview overview = mockDB().getOrDefault(uid, null);
         if (null == overview) {

@@ -1,12 +1,11 @@
 package msc.mawodu.hub.notes;
 
 
+import msc.mawodu.hub.NotesStore;
 import msc.mawodu.hub.Routes;
-import msc.mawodu.hub.mocks.MockInMemoryNotesDatabase;
 import org.jsoup.Jsoup;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
@@ -22,8 +21,11 @@ import java.util.stream.Collectors;
 @RestController
 public class NotesUpdateController {
 
-    @Autowired
-    MockInMemoryNotesDatabase notesDatabase;
+    private NotesStore notesDatabase;
+
+    public NotesUpdateController(NotesStore notesDatabase) {
+        this.notesDatabase = notesDatabase;
+    }
 
     private static final Logger logger = LoggerFactory.getLogger(NotesUpdateController.class);
 
