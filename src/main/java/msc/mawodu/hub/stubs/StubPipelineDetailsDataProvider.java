@@ -1,4 +1,4 @@
-package msc.mawodu.hub.mocks;
+package msc.mawodu.hub.stubs;
 
 import msc.mawodu.hub.PipelineDetails;
 import msc.mawodu.hub.PipelineOverview;
@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MockPipelineDetailsDataProvider {
+public class StubPipelineDetailsDataProvider {
 
     public static PipelineDetails fetchById(String uid) {
         PipelineOverview overview = mockDB().getOrDefault(uid, null);

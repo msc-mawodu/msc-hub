@@ -1,11 +1,11 @@
-package msc.mawodu.hub.mocks;
+package msc.mawodu.hub.stubs;
 
 import msc.mawodu.hub.PipelineOverview;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MockPipelineOverviewDataProvider {
+public class StubPipelineOverviewDataProvider {
 
     public static List<PipelineOverview> fetch() {
         List<PipelineOverview> pipelineOverviews = new ArrayList<>();

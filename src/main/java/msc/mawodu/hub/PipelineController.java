@@ -1,6 +1,6 @@
 package msc.mawodu.hub;
 
-import msc.mawodu.hub.mocks.MockPipelineDetailsDataProvider;
+import msc.mawodu.hub.stubs.StubPipelineDetailsDataProvider;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,7 +13,7 @@ public class PipelineController {
 
     @GetMapping(value="/pipeline/{uid}")
     public ModelAndView pipelinePage(@PathVariable final String uid, Map<String, Object> model) {
-        PipelineDetails pipelineDetails = MockPipelineDetailsDataProvider.fetchById(uid);
+        PipelineDetails pipelineDetails = StubPipelineDetailsDataProvider.fetchById(uid);
         model.put("pipelineDetails", pipelineDetails);
         return new ModelAndView("pipeline", model);
     }

@@ -1,6 +1,6 @@
 package msc.mawodu.hub;
 
-import msc.mawodu.hub.mocks.MockPipelineOverviewDataProvider;
+import msc.mawodu.hub.stubs.StubPipelineOverviewDataProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +19,7 @@ public class HomeController {
 
     @GetMapping(value="/")
     public ModelAndView displayArticle(Map<String, Object> model) {
-        List<PipelineOverview> pipelines = MockPipelineOverviewDataProvider.fetch();
+        List<PipelineOverview> pipelines = StubPipelineOverviewDataProvider.fetch();
         model.put("pipelines", pipelines);
         return new ModelAndView("home", model);
     }
