@@ -27,7 +27,7 @@ public class StubPipelinePipelineDetailsDataProvider implements PipelineDetailsD
 
         String pipelineNotes = notesDatabase.fetchNotesByPipelineId(uid);
 
-        return new PipelineDetails(overview, pipelineNotes, mockPaths());
+        return new PipelineDetails(overview, pipelineNotes, mockFilenames());
     }
 
     private static Map<String, PipelineOverview> mockDB() {
@@ -38,12 +38,11 @@ public class StubPipelinePipelineDetailsDataProvider implements PipelineDetailsD
         return mockDb;
     }
 
-    private static List<String> mockPaths() {
+    private static List<String> mockFilenames() {
         List<String> paths = new ArrayList<>();
-        paths.add("/foo/bar/tar.txt");
-        paths.add("/foo/bar/tar1.txt");
-        paths.add("/foo/bar/tar2.txt");
-        paths.add("/foo/bar/tar3.txt");
+        paths.add("qc.txt");
+        paths.add("report.txt");
+        paths.add("performance.txt");
         return paths;
     }
 }
