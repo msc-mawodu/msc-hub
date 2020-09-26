@@ -7,7 +7,7 @@ public class PipelineOverview {
     private String shortDescription;
     private String url;
 
-    public PipelineOverview(String uid, String status, int assiociatedFilesCount, String shortDescription, String url) {
+    public PipelineOverview(String uid, String status, int assiociatedFilesCount, String shortDescription) {
         this.uid = uid;
         this.status = status;
         this.assiociatedFilesCount = assiociatedFilesCount;
