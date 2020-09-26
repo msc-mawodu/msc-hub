@@ -1,7 +1,5 @@
 package msc.mawodu.hub;
 
-import msc.mawodu.hub.PipelineOverview;
-
 import java.util.List;
 
 public class PipelineDetails {
