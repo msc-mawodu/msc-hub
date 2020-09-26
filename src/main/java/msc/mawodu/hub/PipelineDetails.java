@@ -1,4 +1,4 @@
-package msc.mawodu.hub.mocks;
+package msc.mawodu.hub;
 
 import msc.mawodu.hub.PipelineOverview;
 

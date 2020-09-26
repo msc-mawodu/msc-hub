@@ -1,5 +1,6 @@
 package msc.mawodu.hub.mocks;
 
+import msc.mawodu.hub.PipelineDetails;
 import msc.mawodu.hub.PipelineOverview;
 
 import java.util.ArrayList;
