@@ -31,13 +31,39 @@ Hub application for gathering and storing data from bioinformatic pipelines.
  
  - Status update endpoint
  
- Using postman, make POST request with JSON body to the following endpoint: https://localhost:8080/status
+ Using Postman, make POST request with JSON body to the following endpoint:
+ <pre>
+ localhost:8080/status
+ </pre>
+ 
+ <pre>
+ Set the following request headers: 
+    
+ Accept : application/json,
+ Content-Type : application/json
+ </pre> 
  
  <pre>
  JSON body example:
+ 
  {"id":"GATK","description":"A genomic analysis toolkit focused on variant discovery. The GATK is the industry standard for identifying SNPs and indels in germline DNA and RNAseq data.", "ip":"192.182.0.1", "state":"idle"}
  </pre>
  
  Expected outcome: 
  1) In the application log there should be a confirmation message.
- 2) By navigating to homepage the "GATK" pipeline should be now listed as being IDLE, and have a matching description. 
+ 2) By navigating to homepage the "GATK" pipeline should be now listed as being IDLE, and have a matching description.
+ 
+ 
+ - File Upload
+ 
+ Using postman, make POST request with attached file (e.g. as form data) to the following endpoint: localhost:8080/upload/GATK
+ NB. The file has to be contained in "file" field, there is no particular format requirement for it. This also assumes the GATK pipeline is registered within the system.
+ <pre>
+  localhost:8080/upload/GATK
+ </pre>  
+
+Expected outcome: 
+ 1) In the application log there should be a confirmation message.
+ 2) By navigating to pipeline "GATK" page the uploaded file should be listed.
+ 3) On the homepage the "GATK" entry will the file count column will be updated (e.g. from 0 to 1).  
+ 

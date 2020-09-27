@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,7 +29,7 @@ public class PipelineStatusController {
 
     @PostMapping(value = Routes.PIPELINE_STATUS)
     @ResponseStatus(HttpStatus.OK)
-    public void recordStatus(PipelineMetaData pipelineMetaData) {
+    public void recordStatus(@RequestBody PipelineMetaData pipelineMetaData) {
 
         String pipelineId = pipelineMetaData.getId();
 

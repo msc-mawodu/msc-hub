@@ -21,7 +21,10 @@ public class MockInMemoryFileNamesDatabase implements FilenamesStore {
 
     @Override
     public List<String> fetchAllFilenames(String pipelineId) {
-        return mockDB.get(pipelineId);
+        if (mockDB.containsKey(pipelineId)) {
+            return mockDB.get(pipelineId);
+        }
+        return new ArrayList<>();
     }
 
     @Override
