@@ -1,6 +1,6 @@
 package msc.mawodu.hub.development;
 
-import msc.mawodu.hub.files.FilenamesStore;
+import msc.mawodu.hub.stores.FilenamesStore;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

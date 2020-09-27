@@ -1,7 +1,7 @@
 package msc.mawodu.hub.development;
 
 import msc.mawodu.hub.status.PipelineMetaData;
-import msc.mawodu.hub.status.PipelineMetadataStore;
+import msc.mawodu.hub.stores.PipelineMetadataStore;
 
 import java.util.*;
 

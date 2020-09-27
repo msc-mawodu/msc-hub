@@ -1,7 +1,9 @@
-package msc.mawodu.hub.notes;
+package msc.mawodu.hub.controllers;
 
 
-import msc.mawodu.hub.NotesStore;
+import msc.mawodu.hub.notes.NotesContent;
+import msc.mawodu.hub.notes.NotesUpdateResponse;
+import msc.mawodu.hub.stores.NotesStore;
 import msc.mawodu.hub.Routes;
 import org.jsoup.Jsoup;
 import org.slf4j.Logger;

@@ -1,7 +1,7 @@
 package msc.mawodu.hub.development;
 
 import msc.mawodu.hub.pipelines.PipelineOverview;
-import msc.mawodu.hub.status.PipelineOverviewDataProvider;
+import msc.mawodu.hub.providers.PipelineOverviewDataProvider;
 
 import java.util.ArrayList;
 import java.util.List;

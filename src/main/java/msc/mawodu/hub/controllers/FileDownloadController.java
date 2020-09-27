@@ -1,6 +1,7 @@
-package msc.mawodu.hub.files;
+package msc.mawodu.hub.controllers;
 
 import msc.mawodu.hub.Routes;
+import msc.mawodu.hub.files.FileResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

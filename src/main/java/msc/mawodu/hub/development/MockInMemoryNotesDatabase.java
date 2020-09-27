@@ -1,6 +1,6 @@
 package msc.mawodu.hub.development;
 
-import msc.mawodu.hub.NotesStore;
+import msc.mawodu.hub.stores.NotesStore;
 
 import java.util.HashMap;
 import java.util.Map;

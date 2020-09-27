@@ -1,9 +1,9 @@
 package msc.mawodu.hub.development;
 
-import msc.mawodu.hub.NotesStore;
-import msc.mawodu.hub.files.FilenamesStore;
+import msc.mawodu.hub.stores.NotesStore;
+import msc.mawodu.hub.stores.FilenamesStore;
 import msc.mawodu.hub.pipelines.PipelineDetails;
-import msc.mawodu.hub.pipelines.PipelineDetailsDataProvider;
+import msc.mawodu.hub.providers.PipelineDetailsDataProvider;
 import msc.mawodu.hub.pipelines.PipelineOverview;
 
 import java.util.HashMap;

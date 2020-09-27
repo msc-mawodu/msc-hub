@@ -1,18 +1,18 @@
 package msc.mawodu.hub;
 
 
+import msc.mawodu.hub.controllers.*;
 import msc.mawodu.hub.development.MockInMemoryFileNamesDatabase;
 import msc.mawodu.hub.development.MockInMemoryNotesDatabase;
 import msc.mawodu.hub.development.MockInMemoryPipelineMetadataDatabase;
 import msc.mawodu.hub.files.*;
-import msc.mawodu.hub.notes.NotesUpdateController;
-import msc.mawodu.hub.pipelines.BasePipelineDetailsDataProvider;
-import msc.mawodu.hub.pipelines.PipelineController;
-import msc.mawodu.hub.pipelines.PipelineDetailsDataProvider;
-import msc.mawodu.hub.status.BasePipelineOverviewDataProvider;
-import msc.mawodu.hub.status.PipelineMetadataStore;
-import msc.mawodu.hub.status.PipelineOverviewDataProvider;
-import msc.mawodu.hub.status.PipelineStatusController;
+import msc.mawodu.hub.providers.BasePipelineDetailsDataProvider;
+import msc.mawodu.hub.providers.PipelineDetailsDataProvider;
+import msc.mawodu.hub.providers.BasePipelineOverviewDataProvider;
+import msc.mawodu.hub.stores.FilenamesStore;
+import msc.mawodu.hub.stores.NotesStore;
+import msc.mawodu.hub.stores.PipelineMetadataStore;
+import msc.mawodu.hub.providers.PipelineOverviewDataProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
