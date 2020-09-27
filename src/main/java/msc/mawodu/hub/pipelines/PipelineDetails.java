@@ -1,4 +1,4 @@
-package msc.mawodu.hub;
+package msc.mawodu.hub.pipelines;
 
 import java.util.List;
 

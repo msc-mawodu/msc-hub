@@ -1,23 +1,24 @@
 package msc.mawodu.hub.development;
 
-import msc.mawodu.hub.PipelineDetails;
-import msc.mawodu.hub.PipelineDetailsDataProvider;
-import msc.mawodu.hub.PipelineOverview;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import msc.mawodu.hub.NotesStore;
+import msc.mawodu.hub.files.FilenamesStore;
+import msc.mawodu.hub.pipelines.PipelineDetails;
+import msc.mawodu.hub.pipelines.PipelineDetailsDataProvider;
+import msc.mawodu.hub.pipelines.PipelineOverview;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Service
-public class StubPipelinePipelineDetailsDataProvider implements PipelineDetailsDataProvider {
+public class MockPipelineDetailsProvider implements PipelineDetailsDataProvider {
 
-    @Autowired
-    MockInMemoryNotesDatabase notesDatabase;
+    private NotesStore notesDatabase;
+    private FilenamesStore filenamesDatabase;
 
-    @Autowired
-    MockInMemoryFileNamesDatabase filenamesDatabase;
+    public MockPipelineDetailsProvider(NotesStore notesDatabase, FilenamesStore filenamesDatabase) {
+        this.notesDatabase = notesDatabase;
+        this.filenamesDatabase = filenamesDatabase;
+    }
 
     private static final Map<String, PipelineOverview> mockDb;
 

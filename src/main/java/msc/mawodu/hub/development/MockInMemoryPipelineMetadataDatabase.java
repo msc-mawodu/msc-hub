@@ -3,9 +3,7 @@ package msc.mawodu.hub.development;
 import msc.mawodu.hub.status.PipelineMetaData;
 import msc.mawodu.hub.status.PipelineMetadataStore;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 public class MockInMemoryPipelineMetadataDatabase implements PipelineMetadataStore {
 
@@ -24,6 +22,11 @@ public class MockInMemoryPipelineMetadataDatabase implements PipelineMetadataSto
             return Optional.of(mockDB.get(pipelineId));
         }
         return Optional.empty();
+    }
+
+    @Override
+    public List<PipelineMetaData> fetchAll() {
+        return new ArrayList<PipelineMetaData>(mockDB.values());
     }
 
     @Override
