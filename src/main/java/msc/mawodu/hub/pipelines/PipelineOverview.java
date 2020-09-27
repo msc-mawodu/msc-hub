@@ -1,4 +1,6 @@
-package msc.mawodu.hub;
+package msc.mawodu.hub.pipelines;
+
+import msc.mawodu.hub.Routes;
 
 public class PipelineOverview {
     private String uid;

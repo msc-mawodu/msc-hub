@@ -1,5 +1,7 @@
 package msc.mawodu.hub;
 
+import msc.mawodu.hub.pipelines.PipelineOverview;
+
 import java.util.List;
 
 public class HomeModel {

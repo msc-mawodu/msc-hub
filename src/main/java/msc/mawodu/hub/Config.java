@@ -1,12 +1,13 @@
 package msc.mawodu.hub;
 
 
-import msc.mawodu.hub.development.MockInMemoryFileNamesDatabase;
-import msc.mawodu.hub.development.MockInMemoryNotesDatabase;
-import msc.mawodu.hub.development.MockInMemoryPipelineMetadataDatabase;
-import msc.mawodu.hub.development.StubPipelineOverviewDataProvider;
+import msc.mawodu.hub.development.*;
 import msc.mawodu.hub.files.*;
 import msc.mawodu.hub.notes.NotesUpdateController;
+import msc.mawodu.hub.pipelines.BasePipelineOverviewDataProvider;
+import msc.mawodu.hub.pipelines.PipelineController;
+import msc.mawodu.hub.pipelines.PipelineDetailsDataProvider;
+import msc.mawodu.hub.pipelines.PipelineOverviewDataProvider;
 import msc.mawodu.hub.status.PipelineMetadataStore;
 import msc.mawodu.hub.status.PipelineStatusController;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,8 @@ public class Config {
         return new PropertySourcesPlaceholderConfigurer();
     }
 
+    // MOCKS - for development
+
     @Bean
     MockInMemoryNotesDatabase mockInMemoryNotesDatabase() {
         return new MockInMemoryNotesDatabase();
@@ -42,15 +45,33 @@ public class Config {
         return new MockInMemoryPipelineMetadataDatabase();
     }
 
+//    @Bean
+//    StubPipelineOverviewDataProvider stubPipelineOverviewDataProvider() {
+//        return new StubPipelineOverviewDataProvider();
+//    }
+
     @Bean
-    StubPipelineOverviewDataProvider stubPipelineOverviewDataProvider() {
-        return new StubPipelineOverviewDataProvider();
+    @Autowired
+    public MockPipelineDetailsProvider mockPipelineDetailsProvider(NotesStore notesDatabase, FilenamesStore filenamesDatabase) {
+        return new MockPipelineDetailsProvider(notesDatabase, filenamesDatabase);
     }
+
+
+    // Core Dependencies
 
     @Bean
     FilesystemFileResolver filesystemFileResolver() {
         return new FilesystemFileResolver();
     }
+
+    @Bean
+    @Autowired
+    BasePipelineOverviewDataProvider basePipelineOverviewDataProvider(PipelineMetadataStore metadataStore, FilenamesStore filenamesStore) {
+        return new BasePipelineOverviewDataProvider(metadataStore, filenamesStore);
+    }
+
+
+    // Controllers
 
     @Autowired
     NotesUpdateController notesUpdateController(NotesStore notesStore) {
@@ -75,6 +96,10 @@ public class Config {
     @Autowired
     PipelineStatusController pipelineStatusController(PipelineMetadataStore metadataStore, FileResolver fileResolver) {
         return new PipelineStatusController(metadataStore, fileResolver);
+    }
 
+    @Autowired
+    HomeController homeController(PipelineOverviewDataProvider overviewDataProvider) {
+        return new HomeController(overviewDataProvider);
     }
 }

@@ -1,5 +1,6 @@
-package msc.mawodu.hub;
+package msc.mawodu.hub.pipelines;
 
+import msc.mawodu.hub.Routes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
