@@ -32,4 +32,9 @@ public class MockFileResolver implements FileResolver {
     public boolean storeFile(MultipartFile file, String pipelineId) {
         return true;
     }
+
+    @Override
+    public boolean registerNewPipeline(String pipelineId) {
+        return true;
+    }
 }

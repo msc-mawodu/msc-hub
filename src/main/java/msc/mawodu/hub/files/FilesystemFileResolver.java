@@ -43,4 +43,25 @@ public class FilesystemFileResolver implements FileResolver {
             return false;
         }
     }
+
+    @Override
+    public boolean registerNewPipeline(String pipelineId) {
+        String fullFolderPath = String.format("%s/%s", systemPath, pipelineId);
+        File directory = new File(fullFolderPath);
+        if (! directory.exists()){
+            directory.mkdir();
+            logger.info(String.format("New folder for pipeline: %s created.", pipelineId));
+            return true;
+        }
+        logger.error(String.format("Folder for pipeline: %s already exists. This shouldn't be happening.", pipelineId));
+        return false;
+
+    }
+
+    private void generateInitialDirectoryPath() {
+        File directory = new File(systemPath);
+        if (! directory.exists()){
+            directory.mkdirs();
+        }
+    }
 }

@@ -1,4 +1,4 @@
-package msc.mawodu.hub.dev.stubs;
+package msc.mawodu.hub.development;
 
 import msc.mawodu.hub.PipelineOverview;
 
