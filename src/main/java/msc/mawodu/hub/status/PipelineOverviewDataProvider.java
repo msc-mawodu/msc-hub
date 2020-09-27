@@ -1,4 +1,6 @@
-package msc.mawodu.hub.pipelines;
+package msc.mawodu.hub.status;
+
+import msc.mawodu.hub.pipelines.PipelineOverview;
 
 import java.util.List;
 
