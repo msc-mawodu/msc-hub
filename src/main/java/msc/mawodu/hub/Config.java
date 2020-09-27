@@ -1,14 +1,17 @@
 package msc.mawodu.hub;
 
 
-import msc.mawodu.hub.development.*;
+import msc.mawodu.hub.development.MockInMemoryFileNamesDatabase;
+import msc.mawodu.hub.development.MockInMemoryNotesDatabase;
+import msc.mawodu.hub.development.MockInMemoryPipelineMetadataDatabase;
 import msc.mawodu.hub.files.*;
 import msc.mawodu.hub.notes.NotesUpdateController;
-import msc.mawodu.hub.status.BasePipelineOverviewDataProvider;
+import msc.mawodu.hub.pipelines.BasePipelineDetailsDataProvider;
 import msc.mawodu.hub.pipelines.PipelineController;
 import msc.mawodu.hub.pipelines.PipelineDetailsDataProvider;
-import msc.mawodu.hub.status.PipelineOverviewDataProvider;
+import msc.mawodu.hub.status.BasePipelineOverviewDataProvider;
 import msc.mawodu.hub.status.PipelineMetadataStore;
+import msc.mawodu.hub.status.PipelineOverviewDataProvider;
 import msc.mawodu.hub.status.PipelineStatusController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -50,11 +53,11 @@ public class Config {
 //        return new StubPipelineOverviewDataProvider();
 //    }
 
-    @Bean
-    @Autowired
-    public MockPipelineDetailsProvider mockPipelineDetailsProvider(NotesStore notesDatabase, FilenamesStore filenamesDatabase) {
-        return new MockPipelineDetailsProvider(notesDatabase, filenamesDatabase);
-    }
+//    @Bean
+//    @Autowired
+//    public MockPipelineDetailsProvider mockPipelineDetailsProvider(NotesStore notesDatabase, FilenamesStore filenamesDatabase) {
+//        return new MockPipelineDetailsProvider(notesDatabase, filenamesDatabase);
+//    }
 
 
     // Core Dependencies
@@ -68,6 +71,12 @@ public class Config {
     @Autowired
     BasePipelineOverviewDataProvider basePipelineOverviewDataProvider(PipelineMetadataStore metadataStore, FilenamesStore filenamesStore) {
         return new BasePipelineOverviewDataProvider(metadataStore, filenamesStore);
+    }
+
+    @Bean
+    @Autowired
+    public BasePipelineDetailsDataProvider basePipelineDetailsDataProvider(NotesStore notesDatabase, PipelineMetadataStore metadataStore, FilenamesStore filenamesDatabase) {
+        return new BasePipelineDetailsDataProvider(notesDatabase, metadataStore, filenamesDatabase);
     }
 
 
