@@ -75,6 +75,19 @@ section.files a {
     cursor: pointer; }
 
 form span {
-  display: block; }
+  display: block;
+  padding-left: 50px;
+  margin: 15px; }
+  form span input {
+    padding: 8px 27px;
+    font-size: 1.25em;
+    color: #4B6A88;
+    border: rgba(119, 135, 150, 0.3) solid 1px;
+    background-color: rgba(119, 135, 150, 0.05); }
+    form span input:hover {
+      border: white solid 1px;
+      background-color: rgba(119, 135, 150, 0.8);
+      color: white;
+      cursor: pointer; }
 
 /*# sourceMappingURL=pipeline.css.map */

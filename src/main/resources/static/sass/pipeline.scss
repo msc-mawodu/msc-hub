@@ -2,6 +2,23 @@ $font: Helvetica, sans-serif;
 $font-color: #1C2833;
 $background-color: #4B6A88;
 
+@mixin cta {
+  padding: 8px 27px;
+  font-size: 1.25em;
+  color: #4B6A88;
+  border: rgba(119, 135, 150, 0.3) solid 1px;
+  background-color: rgba(119, 135, 150, 0.05);
+  $font: Helvetica, sans-serif;
+  &:hover {
+    border: white solid 1px;
+    background-color: rgba(119, 135, 150, 0.8);
+    color: white;
+    cursor: pointer;
+  }
+}
+
+
+
 body {
   color: $font-color;
   font: 100% $font;
@@ -65,18 +82,7 @@ h2 {
 }
 
 button {
-  padding: 8px 27px;
-  font-size: 1.25em;
-  color: #4B6A88;
-  border: rgba(119, 135, 150, 0.3) solid 1px;
-  background-color: rgba(119, 135, 150, 0.05);
-  $font: Helvetica, sans-serif;
-  &:hover {
-    border: white solid 1px;
-    background-color: rgba(119, 135, 150, 0.8);
-    color: white;
-    cursor: pointer;
-  }
+  @include cta;
 }
 
 section {
@@ -105,5 +111,10 @@ section {
 form {
   span {
     display: block;
+    padding-left: 50px;
+    margin: 15px;
+    input {
+      @include cta;
+    }
   }
 }

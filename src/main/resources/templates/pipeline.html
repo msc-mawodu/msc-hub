@@ -61,19 +61,15 @@
             <h2>Files Upload</h2>
             <section>
                 <form method="POST" enctype="multipart/form-data" action="/file/manual/{{uid}}">
-                    <span><input type="file" name="file" /></span>
-                    <span><input type="submit" value="Upload" /></span>
+                    <span>
+                        <input id="file-upload" type="file" name="file"/>
+                    </span>
+                    <span>
+                        <input type="submit" value="Upload" />
+                    </span>
                 </form>
             </section>
 
-        <!--<section>-->
-            <!--<form method="POST" enctype="multipart/form-data" action="/file/manual/{{uid}}">-->
-                <!--<table>-->
-                    <!--<tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>-->
-                    <!--<tr><td></td><td><input type="submit" value="Upload" /></td></tr>-->
-                <!--</table>-->
-            <!--</form>-->
-        <!--</section>-->
 
 
         {{/pipelineDetails}}
