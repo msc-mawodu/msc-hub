@@ -11,7 +11,7 @@ Hub application for gathering and storing data from bioinformatic pipelines.
 1) Pull the repository
 2) Start-up MySQL server
 3) Make sure the database configuration is correctly set in the application
-4) Make sure "files.storage.path" is correctly set in the application.properties file. It should be pointing to an existing folder to which files will be downloaded/uploaded.
+4) Make sure "files.storage.path" is set in the application.properties file. It should be pointing to an existing folder to which files will be downloaded and uploaded from.
 5) In the terminal navigate to the project root folder and run command: 
 > mvn spring-boot:run 
 
@@ -67,3 +67,28 @@ Expected outcome:
  2) By navigating to pipeline "GATK" page the uploaded file should be listed.
  3) On the homepage the "GATK" entry will the file count column will be updated (e.g. from 0 to 1).  
  
+ - Manual Files Download and Upload.
+ 
+ Assuming the GATK pipeline was created (as outlined in previous steps) it should be possible to navigate to following url: 
+ <pre>
+   localhost:8080/pipeline/GATK
+ </pre>
+ 
+ From the pipeline view:
+  1) By clicking "Chose File" should open a window prompt to select file from a filesystem.
+  Select a file and confirm selection. 
+  2) By Clicking "Upload" button the page will refresh, and the uploaded file should be visible in the Files section. 
+  3) By clicking any file from the files section a file download should be automatically started.
+  4) By returning to home page, for the pipeline for which the file was uploaded counter should reflect that as well.   
+ 
+ - Pipeline Notes Editing. 
+ 
+   Assuming the GATK pipeline was created (as outlined in previous steps) it should be possible to navigate to following url: 
+  <pre>
+    localhost:8080/pipeline/GATK
+  </pre>
+  
+  From the pipeline view:
+    1) By clicking on the Notes section it should be possible to start editing content of the notes.
+    2) By Clicking "Save Notes" buttonthe uploaded notes should be visible.
+    3) By Refreshing page or exiting and entering this view it can be verified if the notes were persisted.
