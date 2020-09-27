@@ -1,8 +1,7 @@
-package msc.mawodu.hub.pipelines;
+package msc.mawodu.hub.status;
 
 import msc.mawodu.hub.files.FilenamesStore;
-import msc.mawodu.hub.status.PipelineMetaData;
-import msc.mawodu.hub.status.PipelineMetadataStore;
+import msc.mawodu.hub.pipelines.PipelineOverview;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
