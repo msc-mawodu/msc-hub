@@ -2,4 +2,79 @@ body {
   color: #1C2833;
   font: 100% Helvetica, sans-serif; }
 
+article {
+  max-width: 740px;
+  width: 73%;
+  margin: 0 auto 0 7%;
+  padding-bottom: 175px; }
+
+h1 {
+  font-size: 2em;
+  width: 30%;
+  margin: 0 0 0 auto;
+  border: #4B6A88 solid 2px;
+  color: #4B6A88;
+  text-align: center; }
+
+h2 {
+  color: #4B6A88;
+  border-bottom: #4B6A88 1px solid;
+  margin-top: 55px; }
+
+.pipeline-row {
+  padding-left: 15px; }
+  .pipeline-row span {
+    display: block;
+    padding-bottom: 5px;
+    font-weight: bolder;
+    font-size: 1.1em; }
+  .pipeline-row p {
+    font-weight: lighter;
+    font-size: 0.9em;
+    padding-bottom: 15px;
+    margin: 0; }
+    .pipeline-row p.description {
+      width: 65%;
+      line-height: 1.5em;
+      margin-left: 0;
+      margin-right: auto; }
+
+#userNotes {
+  min-height: 120px;
+  background-color: rgba(231, 219, 180, 0.2);
+  color: #1C2833;
+  border: solid 1px rgba(231, 219, 180, 0.35);
+  padding: 15px;
+  margin-bottom: 15px; }
+
+button {
+  padding: 8px 27px;
+  font-size: 1.25em;
+  color: #4B6A88;
+  border: rgba(119, 135, 150, 0.3) solid 1px;
+  background-color: rgba(119, 135, 150, 0.05); }
+  button:hover {
+    border: white solid 1px;
+    background-color: rgba(119, 135, 150, 0.8);
+    color: white;
+    cursor: pointer; }
+
+section.files a {
+  text-decoration: none;
+  color: #4B6A88;
+  display: block;
+  padding: 15px;
+  padding-left: 50px;
+  margin: 15px;
+  border: rgba(119, 135, 150, 0.3) solid 1px;
+  background-color: rgba(119, 135, 150, 0.05); }
+  section.files a:hover {
+    border: white solid 1px;
+    background-color: rgba(119, 135, 150, 0.8);
+    color: white;
+    cursor: pointer; }
+
+form span {
+  display: block; }
+
 /*# sourceMappingURL=pipeline.css.map */
