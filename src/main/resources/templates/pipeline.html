@@ -10,53 +10,77 @@
         <div class="flashMessage">{{.}}</div>
     {{/uploadRedirect}}
 
-    <h1>Pipeline Details</h1>
+
     <article>
-    {{#pipelineDetails}}
-        <h2>Overview</h2>
-        {{#pipelineOverview}}
-        <section class="pipeline-row">
-            <span>{{#uid}} {{.}} {{/uid}}</span>
-            <span>{{#status}} {{.}} {{/status}}</span>
-            <span>{{#assiociatedFilesCount}} {{.}} {{/assiociatedFilesCount}}</span>
-            <span class="description">{{#shortDescription}} {{.}} {{/shortDescription}}</span>
-            <span>{{#url}} {{.}} {{/url}}</span>
-        </section>
-        {{/pipelineOverview}}
+        <h1>Pipeline Details</h1>
+        {{#pipelineDetails}}
+            <h2>Overview</h2>
+            {{#details}}
+            <section class="pipeline-row">
+                <p>
+                    <span>name:</span>
+                    {{#uid}} {{.}} {{/uid}}
+                </p>
+                <p>
+                    <span>status:</span>
+                    {{#status}} {{.}} {{/status}}
+                </p>
+                <p class="description">
+                    <span>description:</span>
+                    {{#shortDescription}} {{.}} {{/shortDescription}}
+                </p>
+            </section>
+            {{/details}}
 
-        {{#notes}}
-        <h2>Notes</h2>
-        <section>
-            <div contenteditable="true" id="userNotes" {{#uid}}data-pipelineid="{{.}}"{{/uid}}>
-                {{.}}
-            </div>
-            <button id="userNotesSave">Save changes</button>
-        </section>
+            <h2>Notes</h2>
+            {{#notes}}
+                <section>
+                    <div contenteditable="true" id="userNotes" {{#uid}}data-pipelineid="{{.}}"{{/uid}}>
+                    No notes available for this pipeline yet. Add some content here then save it.
+                    </div>
+                    <button id="userNotesSave">Save changes</button>
+                </section>
+            {{/notes}}
 
-        {{/notes}}
+            {{^notes}}
+                <section>
+                    <div contenteditable="true" id="userNotes" {{#uid}}data-pipelineid="{{.}}"{{/uid}}>
+                        No notes available for this pipeline yet. Add some content here then save it.
+                    </div>
+                    <button id="userNotesSave">Save changes</button>
+                </section>
+            {{/notes}}
 
-        <h2>Files</h2>
-        {{#filePaths}}
-        <section>
-            <a href="/file/{{uid}}/{{.}}">{{.}}</a>
-        </section>
-        {{/filePaths}}
-        <h3>Files Upload</h3>
-        <section>
-            <form method="POST" enctype="multipart/form-data" action="/file/manual/{{uid}}">
-                <table>
-                    <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
-                    <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
-                </table>
-            </form>
-        </section>
+            <h2>Files</h2>
+            {{#filePaths}}
+            <section class="files">
+                <a href="/file/{{uid}}/{{.}}">{{.}}</a>
+            </section>
+            {{/filePaths}}
+
+            <h2>Files Upload</h2>
+            <section>
+                <form method="POST" enctype="multipart/form-data" action="/file/manual/{{uid}}">
+                    <span><input type="file" name="file" /></span>
+                    <span><input type="submit" value="Upload" /></span>
+                </form>
+            </section>
+
+        <!--<section>-->
+            <!--<form method="POST" enctype="multipart/form-data" action="/file/manual/{{uid}}">-->
+                <!--<table>-->
+                    <!--<tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>-->
+                    <!--<tr><td></td><td><input type="submit" value="Upload" /></td></tr>-->
+                <!--</table>-->
+            <!--</form>-->
+        <!--</section>-->
 
 
-    {{/pipelineDetails}}
+        {{/pipelineDetails}}
 
-    {{^pipelineDetails}}
-        <p>Pipeline not found, return to <a href="/">home page</a></p>
-    {{/pipelineDetails}}
+        {{^pipelineDetails}}
+            <p>Pipeline not found, return to <a href="/">home page</a></p>
+        {{/pipelineDetails}}
 
     </article>
 
