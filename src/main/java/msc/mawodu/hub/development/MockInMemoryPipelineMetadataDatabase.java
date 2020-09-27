@@ -11,9 +11,9 @@ public class MockInMemoryPipelineMetadataDatabase implements PipelineMetadataSto
 
     static {
         mockDB = new HashMap<>();
-        mockDB.put("RNASeQC", new PipelineMetaData("RNASeQC", "RUNNING", "127.0.0.1","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud"));
-        mockDB.put("SolexaQA", new PipelineMetaData("SolexaQA", "RUNNING", "127.0.0.1", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud"));
-        mockDB.put("FastqMcf", new PipelineMetaData("FastqMcf", "RUNNING", "127.0.0.1", "Ut enim ad minim veniam, quis nostrud, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet"));
+        mockDB.put("RNASeQC", new PipelineMetaData("RNASeQC", "Running", "127.0.0.1","Quality control checks on raw sequence data"));
+        mockDB.put("SolexaQA", new PipelineMetaData("SolexaQA", "Running", "127.0.0.1", "Sequence quality statistics visualisation for NGS data."));
+        mockDB.put("FastqMcf", new PipelineMetaData("FastqMcf", "Running", "127.0.0.1", "Scans for adapters and performs clipping."));
     }
 
     @Override

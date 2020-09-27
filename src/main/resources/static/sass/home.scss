@@ -6,8 +6,25 @@ body {
     color: $font-color;
     font: 100% $font;
 
+  article {
+    max-width: 740px;
+    width: 73%;
+    margin: 0 auto 0 7%;
+    padding-bottom: 175px;
+  }
+
+  h1 {
+    font-size: 2em;
+    width: 100%;
+    text-align: left;
+    margin: 0 0 0 auto;
+    border-bottom: #4B6A88 solid 2px;
+    color: #4B6A88;
+    margin-bottom: 45px;
+  }
+
   section {
-    width: 80%;
+    padding-bottom: 55px;
 
     a {
       color: inherit;
@@ -20,7 +37,6 @@ body {
       }
 
       article {
-
         display: flex;
         align-items: center;
         justify-content: space-between;
