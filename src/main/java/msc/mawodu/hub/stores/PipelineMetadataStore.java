@@ -1,4 +1,6 @@
-package msc.mawodu.hub.status;
+package msc.mawodu.hub.stores;
+
+import msc.mawodu.hub.status.PipelineMetaData;
 
 import java.util.List;
 import java.util.Optional;

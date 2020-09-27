@@ -1,4 +1,4 @@
-package msc.mawodu.hub.files;
+package msc.mawodu.hub.stores;
 
 import java.util.List;
 

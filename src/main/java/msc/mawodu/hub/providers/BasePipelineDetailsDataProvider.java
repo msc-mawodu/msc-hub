@@ -1,9 +1,11 @@
-package msc.mawodu.hub.pipelines;
+package msc.mawodu.hub.providers;
 
-import msc.mawodu.hub.NotesStore;
-import msc.mawodu.hub.files.FilenamesStore;
+import msc.mawodu.hub.pipelines.PipelineDetails;
+import msc.mawodu.hub.pipelines.PipelineOverview;
 import msc.mawodu.hub.status.PipelineMetaData;
-import msc.mawodu.hub.status.PipelineMetadataStore;
+import msc.mawodu.hub.stores.FilenamesStore;
+import msc.mawodu.hub.stores.NotesStore;
+import msc.mawodu.hub.stores.PipelineMetadataStore;
 
 import java.util.List;
 import java.util.Optional;

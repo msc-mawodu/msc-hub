@@ -1,4 +1,4 @@
-package msc.mawodu.hub.status;
+package msc.mawodu.hub.providers;
 
 import msc.mawodu.hub.pipelines.PipelineOverview;
 
