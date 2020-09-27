@@ -1,10 +1,10 @@
-package msc.mawodu.hub.stubs;
+package msc.mawodu.hub.dev.stubs;
 
 import msc.mawodu.hub.PipelineDetails;
 import msc.mawodu.hub.PipelineDetailsDataProvider;
 import msc.mawodu.hub.PipelineOverview;
-import msc.mawodu.hub.mocks.MockInMemoryFileNamesDatabase;
-import msc.mawodu.hub.mocks.MockInMemoryNotesDatabase;
+import msc.mawodu.hub.dev.mocks.MockInMemoryFileNamesDatabase;
+import msc.mawodu.hub.dev.mocks.MockInMemoryNotesDatabase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

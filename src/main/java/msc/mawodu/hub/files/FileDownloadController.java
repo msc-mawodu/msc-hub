@@ -1,4 +1,4 @@
-package msc.mawodu.hub.fileDownload;
+package msc.mawodu.hub.files;
 
 import msc.mawodu.hub.Routes;
 import org.slf4j.Logger;

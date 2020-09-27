@@ -1,6 +1,6 @@
-package msc.mawodu.hub.mocks;
+package msc.mawodu.hub.dev.mocks;
 
-import msc.mawodu.hub.fileDownload.FilenamesStore;
+import msc.mawodu.hub.files.FilenamesStore;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
