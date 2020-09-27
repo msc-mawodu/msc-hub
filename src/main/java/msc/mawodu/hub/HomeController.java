@@ -1,6 +1,6 @@
 package msc.mawodu.hub;
 
-import msc.mawodu.hub.stubs.StubPipelineOverviewDataProvider;
+import msc.mawodu.hub.dev.stubs.StubPipelineOverviewDataProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

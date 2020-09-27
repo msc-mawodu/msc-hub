@@ -1,4 +1,4 @@
-package msc.mawodu.hub.fileDownload;
+package msc.mawodu.hub.files;
 
 import org.springframework.web.multipart.MultipartFile;
 

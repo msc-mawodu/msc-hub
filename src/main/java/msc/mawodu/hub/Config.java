@@ -1,15 +1,15 @@
 package msc.mawodu.hub;
 
 
-import msc.mawodu.hub.fileDownload.FileDownloadController;
-import msc.mawodu.hub.fileDownload.FileResolver;
-import msc.mawodu.hub.fileDownload.FilenamesStore;
-import msc.mawodu.hub.fileDownload.FilesystemFileResolver;
-import msc.mawodu.hub.fileUpload.FileUploadController;
-import msc.mawodu.hub.mocks.MockInMemoryFileNamesDatabase;
-import msc.mawodu.hub.mocks.MockInMemoryNotesDatabase;
+import msc.mawodu.hub.files.FileDownloadController;
+import msc.mawodu.hub.files.FileResolver;
+import msc.mawodu.hub.files.FilenamesStore;
+import msc.mawodu.hub.files.FilesystemFileResolver;
+import msc.mawodu.hub.files.FileUploadController;
+import msc.mawodu.hub.dev.mocks.MockInMemoryFileNamesDatabase;
+import msc.mawodu.hub.dev.mocks.MockInMemoryNotesDatabase;
 import msc.mawodu.hub.notes.NotesUpdateController;
-import msc.mawodu.hub.stubs.StubPipelineOverviewDataProvider;
+import msc.mawodu.hub.dev.stubs.StubPipelineOverviewDataProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

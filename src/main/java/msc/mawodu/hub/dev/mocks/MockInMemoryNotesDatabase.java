@@ -1,4 +1,4 @@
-package msc.mawodu.hub.mocks;
+package msc.mawodu.hub.dev.mocks;
 
 import msc.mawodu.hub.NotesStore;
 
