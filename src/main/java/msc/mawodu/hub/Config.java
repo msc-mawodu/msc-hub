@@ -1,15 +1,14 @@
 package msc.mawodu.hub;
 
 
-import msc.mawodu.hub.files.FileDownloadController;
-import msc.mawodu.hub.files.FileResolver;
-import msc.mawodu.hub.files.FilenamesStore;
-import msc.mawodu.hub.files.FilesystemFileResolver;
-import msc.mawodu.hub.files.FileUploadController;
-import msc.mawodu.hub.dev.mocks.MockInMemoryFileNamesDatabase;
-import msc.mawodu.hub.dev.mocks.MockInMemoryNotesDatabase;
+import msc.mawodu.hub.development.MockInMemoryFileNamesDatabase;
+import msc.mawodu.hub.development.MockInMemoryNotesDatabase;
+import msc.mawodu.hub.development.MockInMemoryPipelineMetadataDatabase;
+import msc.mawodu.hub.development.StubPipelineOverviewDataProvider;
+import msc.mawodu.hub.files.*;
 import msc.mawodu.hub.notes.NotesUpdateController;
-import msc.mawodu.hub.dev.stubs.StubPipelineOverviewDataProvider;
+import msc.mawodu.hub.status.PipelineMetadataStore;
+import msc.mawodu.hub.status.PipelineStatusController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -36,6 +35,11 @@ public class Config {
     @Bean
     MockInMemoryFileNamesDatabase mockInMemoryFileNamesDatabase() {
         return new MockInMemoryFileNamesDatabase();
+    }
+
+    @Bean
+    MockInMemoryPipelineMetadataDatabase mockInMemoryPipelineMetadataDatabase() {
+        return new MockInMemoryPipelineMetadataDatabase();
     }
 
     @Bean
@@ -66,5 +70,11 @@ public class Config {
     @Autowired
     FileUploadController fileUploadController(FileResolver fileResolver, FilenamesStore filenamesStore) {
         return new FileUploadController(fileResolver, filenamesStore);
+    }
+
+    @Autowired
+    PipelineStatusController pipelineStatusController(PipelineMetadataStore metadataStore, FileResolver fileResolver) {
+        return new PipelineStatusController(metadataStore, fileResolver);
+
     }
 }
