@@ -5,19 +5,26 @@
     <title>Title</title>
 </head>
 <body>
-    <section>
-        {{#pipelines}}
-            <a href="{{#url}}{{.}}{{/url}}">
-                <article class="pipeline-row">
-                    <span>{{#uid}} {{.}} {{/uid}}</span>
-                    <span>{{#status}} {{.}} {{/status}}</span>
-                    <span>{{#assiociatedFilesCount}} {{.}} {{/assiociatedFilesCount}}</span>
-                    <span class="description">{{#shortDescription}} {{.}} {{/shortDescription}}</span>
-                    <span></span>
-                </article>
-            </a>
-        {{/pipelines}}
-    </section>
+    <article>
+        <h1>Currently Running Pipelines</h1>
+        <section>
+            {{#pipelines}}
+                <a href="{{#url}}{{.}}{{/url}}">
+                    <article class="pipeline-row">
+                        <span>{{#uid}} {{.}} {{/uid}}</span>
+                        <span>{{#status}} {{.}} {{/status}}</span>
+                        <span>{{#assiociatedFilesCount}} {{.}} {{/assiociatedFilesCount}}</span>
+                        <span class="description">{{#shortDescription}} {{.}} {{/shortDescription}}</span>
+                        <span></span>
+                    </article>
+                </a>
+            {{/pipelines}}
+        </section>
+        <h1>Completed Pipelines</h1>
+        <section>
+            <p>There are currently no completed pipelines</p>
+        </section>
+    </article>
 
 </body>
 

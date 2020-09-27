@@ -2,8 +2,23 @@ body {
   color: #1c2833;
   font: 100% Helvetica, sans-serif;
 }
+body article {
+  max-width: 740px;
+  width: 73%;
+  margin: 0 auto 0 7%;
+  padding-bottom: 175px;
+}
+body h1 {
+  font-size: 2em;
+  width: 100%;
+  text-align: left;
+  margin: 0 0 0 auto;
+  border-bottom: #4B6A88 solid 2px;
+  color: #4B6A88;
+  margin-bottom: 45px;
+}
 body section {
-  width: 80%;
+  padding-bottom: 55px;
 }
 body section a {
   color: inherit;
