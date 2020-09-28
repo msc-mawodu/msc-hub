@@ -2,6 +2,7 @@ package msc.mawodu.hub;
 
 
 import msc.mawodu.hub.controllers.*;
+import msc.mawodu.hub.development.MockInMemoryFileNamesDatabase;
 import msc.mawodu.hub.development.MockInMemoryNotesDatabase;
 import msc.mawodu.hub.development.MockInMemoryPipelineMetadataDatabase;
 import msc.mawodu.hub.files.FileResolver;
@@ -11,7 +12,6 @@ import msc.mawodu.hub.providers.BasePipelineOverviewDataProvider;
 import msc.mawodu.hub.providers.PipelineDetailsDataProvider;
 import msc.mawodu.hub.providers.PipelineOverviewDataProvider;
 import msc.mawodu.hub.stores.FilenamesStore;
-import msc.mawodu.hub.stores.FilenamesStoreMySQL;
 import msc.mawodu.hub.stores.NotesStore;
 import msc.mawodu.hub.stores.PipelineMetadataStore;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.Environment;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
@@ -52,10 +51,10 @@ public class Config implements EnvironmentAware {
         return new MockInMemoryNotesDatabase();
     }
 
-//    @Bean
-//    MockInMemoryFileNamesDatabase mockInMemoryFileNamesDatabase() {
-//        return new MockInMemoryFileNamesDatabase();
-//    }
+    @Bean
+    MockInMemoryFileNamesDatabase mockInMemoryFileNamesDatabase() {
+        return new MockInMemoryFileNamesDatabase();
+    }
 
     @Bean
     MockInMemoryPipelineMetadataDatabase mockInMemoryPipelineMetadataDatabase() {
@@ -86,21 +85,21 @@ public class Config implements EnvironmentAware {
         return ds;
     }
 
-    @Bean
-    @Autowired
-    public JdbcTemplate jdbc(DataSource dataSource) {
-        return new JdbcTemplate(dataSource);
-    }
+//    @Bean
+//    @Autowired
+//    public JdbcTemplate jdbc(DataSource dataSource) {
+//        return new JdbcTemplate(dataSource);
+//    }
 
 //    @Bean
 //    NotesStoreMySQL notesStoreMySQL(JdbcTemplate jdbc) {
 //        return new NotesStoreMySQL(jdbc);
 //    }
 
-    @Bean
-    FilenamesStoreMySQL filenamesStoreMySQL(JdbcTemplate jdbc) {
-        return new FilenamesStoreMySQL(jdbc);
-    }
+//    @Bean
+//    FilenamesStoreMySQL filenamesStoreMySQL(JdbcTemplate jdbc) {
+//        return new FilenamesStoreMySQL(jdbc);
+//    }
 
 //    @Bean
 //    PipelineMetadataStoreMySQL pipelineMetadataStoreMySQL(JdbcTemplate jdbc) {
