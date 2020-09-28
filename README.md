@@ -18,6 +18,41 @@ Hub application for gathering and storing data from bioinformatic pipelines.
 5) By default the application should be running on localhost port 8080, so unless it's occupied the application should be available at
 > 127.0.0.1:8080
 
+# Integrating with Docker based MySQL instance
+1) Download and install Docker. 
+2) Check if docker is running
+<pre> docker ps </pre>  
+3) Pull latest mysql image from Docker 
+<pre> >> docker pull mysql/mysql-server:latest </pre> 
+4) Run the docker container 
+<pre> docker run --detach --name=hub-mysql --publish 6603:3306 -d mysql/mysql-server:latest </pre> 
+5) Check if the container is running
+<pre> >> docker inspect hub-mysql </pre>
++ Make note of the IPAddress and ExposedPorts fields, as they will be used later for in the application.properties 
+6) Check the MySQL logs 
+<pre> docker logs hub-mysql </pre>
++ Make note of the GENERATED ROOT PASSWORD field, this will also be used later to configure the application.properties (e.g. gusnUNl4dris3bYJIRElj3cUc@l)
+7) Create table by connecting and logging into the MySQL database running now in Docker (use the password obtained from step 6).  
+<pre> >> docker exec -it hub-mysql mysql -uroot -p </pre>
+8) Once in the mysql console, change generated root password (in this example password is set to 'pwd' for simplicity) 
+<pre> mysql>> ALTER USER 'root'@'localhost' IDENTIFIED BY 'pwd'; </pre> 
+9) Create the database schema to be used inside the hub application:
+<pre> mysql>> create database hub; </pre>
+10) Create user that to be used by the web application to perform actions on the database (in this example password is set to 'pwd' for simplicity):
+<pre> mysql>> create user hubapp identified by 'pwd'; </pre>
+11) Grant the newly created application-user full access to all schema in db
+<pre> mysql>> grant all on hub.* to 'hubapp'; </pre>
+12) Exit mysql console
+<pre> mysql>> exit </pre>
+13) Configure application.properties with following data: 
+<pre>
+spring.datasource.url=jdbc:mysql://172.17.0.2:3306/hub
+spring.datasource.username=hubapp
+spring.datasource.password=pwd
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+</pre>
+14) NB. Alternatively the database can be run as a service on a host machine, in such case mysql client needs to be installed first. The database configuration steps are similiar to those outlined for docker. 
+
 # Development
 - CSS: project uses sass/scss files to defile css stylesheets. Maven is responsible for compilation from sccs to css.
 - To compile scss to css run following command (NB. this can be done with the main application running).
